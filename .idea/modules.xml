@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Secret Quiz/Secret Quiz.iml" filepath="$PROJECT_DIR$/Secret Quiz/Secret Quiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SecretQuiz.iml" filepath="$PROJECT_DIR$/SecretQuiz.iml" />
+    </modules>
+  </component>
+</project>
+
