@@ -2,16 +2,16 @@
 <merger>
 
     <dataSet config="ComAndroidSupportAppcompatV71900.aar" >
-        <source path="D:\Projects\Android\SecretQuiz\Secret Quiz\build\exploded-bundles\ComAndroidSupportAppcompatV71900.aar\assets" />
+        <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\build\exploded-bundles\ComAndroidSupportAppcompatV71900.aar\assets" />
     </dataSet>
     <dataSet config="ComAndroidSupportGridlayoutV71900.aar" >
-        <source path="D:\Projects\Android\SecretQuiz\Secret Quiz\build\exploded-bundles\ComAndroidSupportGridlayoutV71900.aar\assets" />
+        <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\build\exploded-bundles\ComAndroidSupportGridlayoutV71900.aar\assets" />
     </dataSet>
     <dataSet config="main" >
-        <source path="D:\Projects\Android\SecretQuiz\Secret Quiz\src\main\assets" />
+        <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\src\main\assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="D:\Projects\Android\SecretQuiz\Secret Quiz\src\debug\assets" />
+        <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\src\debug\assets" />
     </dataSet>
 
 </merger>

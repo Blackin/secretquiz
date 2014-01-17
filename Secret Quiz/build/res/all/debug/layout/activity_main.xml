@@ -1,8 +1,33 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ro.blackin.secretquiz.MainActivity"
-    tools:ignore="MergeRootFrame" />
-<!-- From: file:/D:/Projects/Android/SecretQuiz/Secret%20Quiz/src/main/res/layout/activity_main.xml -->
+    tools:ignore="MergeRootFrame"
+    android:orientation="horizontal"
+    >
+
+    <ViewFlipper
+        android:id="@+id/vfMainViewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/fragmentSplash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="ro.blackin.secretquiz.MainActivity$SplashScreenFragment"
+            tools:layout="@layout/fragment_splash" />
+
+        <fragment
+            android:id="@+id/fragmentQuizMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="ro.blackin.secretquiz.MainActivity$QuizMainFragment"
+            tools:layout="@layout/fragment_quizmain" />
+
+    </ViewFlipper>
+
+</LinearLayout>
+<!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/layout/activity_main.xml -->

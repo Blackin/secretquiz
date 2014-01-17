@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/D:/Projects/Android/SecretQuiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-w600dp/values.xml -->
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-w600dp/values.xml -->
     <eat-comment />
 
     <dimen name="abc_action_bar_default_height">56dip</dimen>

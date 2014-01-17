@@ -1,7 +1,8 @@
 package ro.blackin.secretquiz;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,14 +10,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
+import android.widget.ViewFlipper;
 
 import ro.blackin.secretquiz.models.Quiz;
+import ro.blackin.secretquiz.providers.HardCodedQuizProvider;
 import ro.blackin.secretquiz.providers.QuizProvider;
+import ro.blackin.secretquiz.skeleton.BaseActivity;
+import ro.blackin.secretquiz.utils.Statics;
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends BaseActivity
 {
-    protected Quiz quiz;
+    //VIEWS
+    ViewFlipper vfMainViewFlipper;
+
+
+    //CONSTANTS
+    private final int SPLASH_FRAGMENT_POSITION = 0;
+    private final int QUIZ_MAIN_FRAGMENT_POSITION = 1;
+
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,32 +38,34 @@ public class MainActivity extends ActionBarActivity
 
         getSupportActionBar().hide();
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        //Add splash fragment
+//        getSupportFragmentManager().beginTransaction()
+//                .add(R.id.vfMainViewFlipper, new SplashScreenFragment())
+//                .commit();
+
+        //Incarca quiz-ul din provider
+        HardCodedQuizProvider quizProvider = new HardCodedQuizProvider();
+        Statics.currentQuiz = quizProvider.getQuiz();
 
         initUI();
-        populateWithData();
-    }
 
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                vfMainViewFlipper.showNext();
+            }
+        }, 2000);
+
+
+
+    }
 
     private void initUI()
     {
-        //TODO: FindViewById-type code
-
+        vfMainViewFlipper = ( ViewFlipper ) findViewById(R.id.vfMainViewFlipper);
     }
 
-    private void populateWithData()
-    {
-        //TODO: Set the quiz from a provider implementation
-    }
-
-    private void setQuiz( QuizProvider provider )
-    {
-        this.quiz = provider.getQuiz();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,18 +88,53 @@ public class MainActivity extends ActionBarActivity
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * The splash fragment
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class SplashScreenFragment extends Fragment {
 
-        public PlaceholderFragment() {
+        public SplashScreenFragment() {
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_splash, container, false);
             return rootView;
+        }
+    }
+
+    /**
+     * Start Quiz Fragment
+     */
+
+    public static class QuizMainFragment extends Fragment
+    {
+        Button btnStartQuiz;
+
+        public QuizMainFragment(){
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_quizmain, container, false);
+            initUI( rootView );
+            return rootView;
+        }
+
+        private void initUI( View rootView )
+        {
+            //TODO: FindViewById-type code
+            btnStartQuiz = ( Button ) rootView.findViewById(R.id.btnStartQuiz);
+            btnStartQuiz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent intent = new Intent();
+                    intent.setClass( getActivity() , TakeQuizActivity.class);
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.abc_fade_out);
+                }
+            });
         }
     }
 

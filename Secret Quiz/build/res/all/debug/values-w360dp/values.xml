@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/D:/Projects/Android/SecretQuiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-w360dp/values.xml -->
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values-w360dp/values.xml -->
     <eat-comment />
 
     <integer name="abc_max_action_buttons">3</integer>

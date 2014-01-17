@@ -16,4 +16,4 @@
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
            android:interpolator="@android:anim/accelerate_interpolator"
            android:fromYDelta="0" android:toYDelta="-50%p"
-           android:duration="@android:integer/config_mediumAnimTime"/><!-- From: file:/usr/local/google/home/raphael/android/klp-dev/frameworks/support/v7/appcompat/res/anim/abc_slide_out_top.xml --><!-- From: file:/D:/Projects/Android/SecretQuiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/anim/abc_slide_out_top.xml -->
+           android:duration="@android:integer/config_mediumAnimTime"/><!-- From: file:/usr/local/google/home/raphael/android/klp-dev/frameworks/support/v7/appcompat/res/anim/abc_slide_out_top.xml --><!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/anim/abc_slide_out_top.xml -->

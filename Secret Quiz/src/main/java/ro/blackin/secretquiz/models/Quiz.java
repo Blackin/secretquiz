@@ -12,12 +12,17 @@ public class Quiz {
     private String title;
     private String description;
 
+    private int MAX_SCORE = 0;
+
+    /**
+     * Constructor
+     */
     public Quiz()
     {
 
     }
 
-    /*
+    /**
     GETTERS & SETTERS
      */
 
