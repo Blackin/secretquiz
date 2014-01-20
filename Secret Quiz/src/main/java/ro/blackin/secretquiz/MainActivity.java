@@ -36,7 +36,15 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
+        try
+        {
+            getSupportActionBar().hide();
+        }
+        catch (Exception ex)
+        {
+            //There is no supportActionBar :)
+            ex.printStackTrace();
+        }
 
         //Add splash fragment
 //        getSupportFragmentManager().beginTransaction()

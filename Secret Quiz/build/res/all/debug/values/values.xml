@@ -710,6 +710,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="app_name">Secret Quiz</string>
+    <string name="btn_start_quiz">Start</string>
     <string name="hello_world">Hello world!</string>
     <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/styles.xml -->
     <eat-comment />

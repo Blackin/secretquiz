@@ -9,6 +9,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="ro.blackin.secretquiz.TakeQuizActivity" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

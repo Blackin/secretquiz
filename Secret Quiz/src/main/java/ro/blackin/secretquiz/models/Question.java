@@ -1,15 +1,19 @@
 package ro.blackin.secretquiz.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Mihai on 1/9/14.
  */
-public class Question
+public class Question implements Serializable
 {
     private String title;
     private int order;
     private ArrayList<Answer> answers;
+
+
+    
 
     /*
     GETTERS & SETTERS

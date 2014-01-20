@@ -15,7 +15,8 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
-        public static final int in_from_right=0x7f040006;
+        public static final int fade_in=0x7f040006;
+        public static final int in_from_right=0x7f040007;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1067,13 +1068,14 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f070026;
         public static final int action_menu_presenter=0x7f070027;
         public static final int action_mode_close_button=0x7f070035;
-        public static final int action_settings=0x7f070052;
+        public static final int action_settings=0x7f070055;
         public static final int activity_chooser_view_content=0x7f070036;
         public static final int alignBounds=0x7f07000b;
         public static final int alignMargins=0x7f07000c;
         public static final int always=0x7f070020;
         public static final int beginning=0x7f07001c;
         public static final int bottom=0x7f07000e;
+        public static final int btnStartQuiz=0x7f070053;
         public static final int center=0x7f070015;
         public static final int center_horizontal=0x7f070013;
         public static final int center_vertical=0x7f070011;
@@ -1101,7 +1103,7 @@ containing a value of this type.
         public static final int icon=0x7f07003b;
         public static final int ifRoom=0x7f07001f;
         public static final int image=0x7f070038;
-        public static final int ivSplashImage=0x7f070051;
+        public static final int ivSplashImage=0x7f070054;
         public static final int left=0x7f07000f;
         public static final int listMode=0x7f070001;
         public static final int list_item=0x7f07003a;
@@ -1134,10 +1136,12 @@ containing a value of this type.
         public static final int title=0x7f07003c;
         public static final int top=0x7f07000d;
         public static final int top_action_bar=0x7f070031;
+        public static final int tvQuestionTitle=0x7f070052;
         public static final int up=0x7f070032;
         public static final int useLogo=0x7f070003;
         public static final int vertical=0x7f07000a;
         public static final int vfMainViewFlipper=0x7f07004e;
+        public static final int vpTakeQuiz=0x7f070051;
         public static final int withText=0x7f070021;
     }
     public static final class integer {
@@ -1168,9 +1172,11 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int fragment_quizmain=0x7f030018;
-        public static final int fragment_splash=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+        public static final int activity_takequiz=0x7f030018;
+        public static final int fragment_question=0x7f030019;
+        public static final int fragment_quizmain=0x7f03001a;
+        public static final int fragment_splash=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1191,7 +1197,8 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000c;
         public static final int action_settings=0x7f0a000d;
         public static final int app_name=0x7f0a000e;
-        public static final int hello_world=0x7f0a000f;
+        public static final int btn_start_quiz=0x7f0a000f;
+        public static final int hello_world=0x7f0a0010;
     }
     public static final class style {
         public static final int AppTheme=0x7f0b0000;

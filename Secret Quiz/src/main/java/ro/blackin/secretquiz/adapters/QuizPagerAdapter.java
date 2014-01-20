@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 
+import ro.blackin.secretquiz.fragments.QuestionFragment;
 import ro.blackin.secretquiz.models.Quiz;
 
 /**
@@ -28,9 +29,7 @@ public class QuizPagerAdapter extends FragmentStatePagerAdapter
     @Override
     public Fragment getItem(int i)
     {
-       //TODO: Returneaza fragmentu` :D
-
-        return new Fragment();
+        return QuestionFragment.newInstance(quiz.questions.get(i));
     }
 
     @Override
