@@ -1,9 +1,11 @@
 package ro.blackin.secretquiz.models;
 
+import java.io.Serializable;
+
 /**
  * Created by Mihai on 1/9/14.
  */
-public class Answer {
+public class Answer implements Serializable {
 
     private String title;
     private boolean correct;

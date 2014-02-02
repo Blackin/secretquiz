@@ -175,6 +175,27 @@ public class HardCodedQuizProvider implements  QuizProvider
 
         quiz.addQuestion(question);
 
+
+        //Question 6
+        question= new Question();
+        question.setTitle("Ana are mere ?");
+        question.setOrder(2);
+
+        answer = new Answer();
+        answer.setOrder(0);
+        answer.setTitle("Da");
+        answer.setCorrect(true);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(1);
+        answer.setTitle("Nu");
+        answer.setCorrect(false);
+        question.addAnswer(answer);
+
+
+        quiz.addQuestion(question);
+
     }
 
     @Override

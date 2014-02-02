@@ -11,9 +11,8 @@ public class Question implements Serializable
     private String title;
     private int order;
     private ArrayList<Answer> answers;
+    private boolean isFinalQuestion = false;
 
-
-    
 
     /*
     GETTERS & SETTERS
@@ -50,5 +49,13 @@ public class Question implements Serializable
         }
 
         this.answers.add(answer);
+    }
+
+    public boolean isFinalQuestion() {
+        return isFinalQuestion;
+    }
+
+    public void setFinalQuestion(boolean isFinalQuestion) {
+        this.isFinalQuestion = isFinalQuestion;
     }
 }

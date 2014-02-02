@@ -10,6 +10,7 @@ import android.view.View;
 
 import ro.blackin.secretquiz.fragments.QuestionFragment;
 import ro.blackin.secretquiz.models.Quiz;
+import ro.blackin.secretquiz.views.NonSwipeableViewPager;
 
 /**
  * Created by Black on 1/11/14.
@@ -18,18 +19,20 @@ public class QuizPagerAdapter extends FragmentStatePagerAdapter
 {
     Quiz quiz = null;
     FragmentActivity activity;
+    NonSwipeableViewPager pager;
 
-    public QuizPagerAdapter( FragmentActivity activity, Quiz qz )
+    public QuizPagerAdapter( FragmentActivity activity, Quiz qz, NonSwipeableViewPager pg)
     {
         super( activity.getSupportFragmentManager() );
         this.activity = activity;
+        this.pager = pg;
         quiz = qz;
     }
 
     @Override
     public Fragment getItem(int i)
     {
-        return QuestionFragment.newInstance(quiz.questions.get(i));
+        return QuestionFragment.newInstance(quiz.questions.get(i), this.pager);
     }
 
     @Override
