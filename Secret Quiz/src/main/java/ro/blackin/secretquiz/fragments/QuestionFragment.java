@@ -1,6 +1,7 @@
 package ro.blackin.secretquiz.fragments;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,9 +13,11 @@ import android.support.v7.widget.GridLayout;
 import android.widget.ViewFlipper;
 
 import ro.blackin.secretquiz.R;
+import ro.blackin.secretquiz.YesActivity;
 import ro.blackin.secretquiz.models.Answer;
 import ro.blackin.secretquiz.models.Question;
 import ro.blackin.secretquiz.views.NonSwipeableViewPager;
+import ro.blackin.secretquiz.views.SAutoBgButton;
 
 /**
  * Created by Black on 1/20/14.
@@ -70,7 +73,7 @@ public class QuestionFragment extends Fragment
                 public void onClick(View view)
                 {
                     try{
-                        Button btn = (Button) view;
+                        SAutoBgButton btn = (SAutoBgButton) view;
                         Answer answer = (Answer) btn.getTag();
 
                         if(answer.isCorrect()){
@@ -93,28 +96,28 @@ public class QuestionFragment extends Fragment
             tv.setText(question.getTitle());
 
             //Pune butoanele cu raspunsurile in gridview
-            Button answer1 = (Button) rootView.findViewById(R.id.btnAnswer1);
+            SAutoBgButton answer1 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer1);
             answer1.setText(question.getAnswers().get(0).getTitle());
             answer1.setTag(question.getAnswers().get(0));
             answer1.setOnClickListener(answerClickListener);
 
-            Button answer2 = (Button) rootView.findViewById(R.id.btnAnswer2);
+            SAutoBgButton answer2 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer2);
             answer2.setText(question.getAnswers().get(1).getTitle());
             answer2.setTag(question.getAnswers().get(1));
             answer2.setOnClickListener(answerClickListener);
 
-            Button answer3 = (Button) rootView.findViewById(R.id.btnAnswer3);
+            SAutoBgButton answer3 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer3);
             answer3.setText(question.getAnswers().get(2).getTitle());
             answer3.setTag(question.getAnswers().get(2));
             answer3.setOnClickListener(answerClickListener);
 
-            Button answer4 = (Button) rootView.findViewById(R.id.btnAnswer4);
+            SAutoBgButton answer4 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer4);
             answer4.setText(question.getAnswers().get(3).getTitle());
             answer4.setTag(question.getAnswers().get(3));
             answer4.setOnClickListener(answerClickListener);
 
 
-            //Next Question Buttons
+            //Next Question SAutoBgButtons
             View.OnClickListener nextListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View view)
@@ -129,9 +132,9 @@ public class QuestionFragment extends Fragment
                 }
             };
 
-            Button btnNextCorrect = (Button) rootView.findViewById(R.id.btnCorrectNextQuestion);
+            SAutoBgButton btnNextCorrect = (SAutoBgButton) rootView.findViewById(R.id.btnCorrectNextQuestion);
             btnNextCorrect.setOnClickListener(nextListener);
-            Button btnNextWrong = (Button) rootView.findViewById(R.id.btnWrongNextQuestion);
+            SAutoBgButton btnNextWrong = (SAutoBgButton) rootView.findViewById(R.id.btnWrongNextQuestion);
             btnNextWrong.setOnClickListener(nextListener);
 
             return rootView;
@@ -141,8 +144,47 @@ public class QuestionFragment extends Fragment
             /**
              * Final question
              */
+            ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_final_question, null);
+            final ViewFlipper flipper = (ViewFlipper) rootView.findViewById(R.id.vfQuestionViewFlipper);
+            //Answer Button click listener
+            View.OnClickListener answerClickListener = new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                {
+                    try{
+                        SAutoBgButton btn = (SAutoBgButton) view;
+                        Answer answer = (Answer) btn.getTag();
 
-            return null;
+                        if(answer.isCorrect())
+                        {
+                            //A zis DA !!! :D
+                            Intent intent = new Intent(getActivity(), YesActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            //Nu exista asa ceva!
+
+                        }
+
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            };
+
+            //Pune butoanele cu raspunsurile in gridview
+            SAutoBgButton answer1 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer1);
+            answer1.setText(question.getAnswers().get(0).getTitle());
+            answer1.setTag(question.getAnswers().get(0));
+            answer1.setOnClickListener(answerClickListener);
+
+            SAutoBgButton answer2 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer2);
+            answer2.setText(question.getAnswers().get(1).getTitle());
+            answer2.setTag(question.getAnswers().get(1));
+            answer2.setOnClickListener(answerClickListener);
+
+            return rootView;
         }
     }
 

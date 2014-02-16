@@ -8,7 +8,11 @@
         <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\build\exploded-bundles\ComAndroidSupportGridlayoutV71900.aar\assets" />
     </dataSet>
     <dataSet config="main" >
-        <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\src\main\assets" />
+        <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\src\main\assets" >
+            <file
+                name="fonts/Ubuntu-Bold.ttf"
+                path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\src\main\assets\fonts\Ubuntu-Bold.ttf" />
+        </source>
     </dataSet>
     <dataSet config="debug" >
         <source path="F:\Android Studio Projects\Secret Quiz\Secret Quiz\src\debug\assets" />

@@ -36,20 +36,6 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        try
-        {
-            getSupportActionBar().hide();
-        }
-        catch (Exception ex)
-        {
-            //There is no supportActionBar :)
-            ex.printStackTrace();
-        }
-
-        //Add splash fragment
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.vfMainViewFlipper, new SplashScreenFragment())
-//                .commit();
 
         //Incarca quiz-ul din provider
         HardCodedQuizProvider quizProvider = new HardCodedQuizProvider();

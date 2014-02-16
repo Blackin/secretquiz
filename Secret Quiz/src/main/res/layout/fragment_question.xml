@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/ro.blackin.secretquiz"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BlackImageBackground"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ro.blackin.secretquiz.views.CustomFontTextView
+        style="@style/QuestionTextView"
         android:id="@+id/tvQuestionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,6 +16,7 @@
         />
 
     <ViewFlipper
+        android:layout_marginTop="30dp"
         android:id="@+id/vfQuestionViewFlipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,21 +25,24 @@
     <LinearLayout
         android:id="@+id/llQuestionContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:weightSum="1"
         android:orientation="vertical"
+        android:paddingTop="60dp"
+        android:visibility="visible"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="0.5"
+            android:layout_weight="0.3"
             android:weightSum="1"
             android:layout_marginTop="@dimen/answer_row_top_margin"
             >
 
-            <Button
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/RedButton"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -46,7 +52,8 @@
                 android:layout_marginRight="@dimen/answer_button_left_right_margin"
                 android:layout_marginLeft="@dimen/answer_button_left_right_margin"
                 />
-            <Button
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/RedButton"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -62,10 +69,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="0.5"
+            android:layout_weight="0.3"
             android:layout_marginTop="@dimen/answer_row_top_margin"
             >
-            <Button
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/RedButton"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -76,7 +84,8 @@
                 android:layout_marginLeft="@dimen/answer_button_left_right_margin"
                 />
 
-            <Button
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/RedButton"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -95,23 +104,58 @@
         android:id="@+id/llCorrectAnswer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="1"
         android:orientation="vertical"
         android:visibility="gone"
         >
-
-        <TextView
+        
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/correct_answer_static_text_size"
-            android:text="@string/txt_correct_answer_static_text"
-            />
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-        <Button
-            android:id="@+id/btnCorrectNextQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_next_question"
-            />
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/correct_answer_static_text_size"
+                android:text="@string/txt_correct_answer_static_text"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/correct"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/CorrectNextButton"
+                android:id="@+id/btnCorrectNextQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/btn_next_question"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -120,23 +164,58 @@
         android:id="@+id/llWrongAnswer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="1"
         android:orientation="vertical"
         android:visibility="gone"
         >
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/wrong_answer_static_text_size"
-            android:text="@string/txt_wrong_answer_static_text"
-            />
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
 
-        <Button
-            android:id="@+id/btnWrongNextQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_next_question"
-            />
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/correct_answer_static_text_size"
+                android:text="@string/txt_correct_answer_static_text"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/wrong"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/WrongNextButton"
+                android:id="@+id/btnWrongNextQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/btn_next_question"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

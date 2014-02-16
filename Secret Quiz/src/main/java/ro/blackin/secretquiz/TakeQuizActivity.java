@@ -36,4 +36,12 @@ public class TakeQuizActivity extends BaseActivity
 
     }
 
+    @Override
+    public void onBackPressed()
+    {
+//        super.onBackPressed();
+
+        //Nope
+        return;
+    }
 }

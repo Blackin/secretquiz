@@ -180,6 +180,7 @@ public class HardCodedQuizProvider implements  QuizProvider
         question= new Question();
         question.setTitle("Ana are mere ?");
         question.setOrder(2);
+        question.setFinalQuestion(true);
 
         answer = new Answer();
         answer.setOrder(0);

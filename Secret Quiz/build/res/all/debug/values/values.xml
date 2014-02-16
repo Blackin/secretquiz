@@ -78,6 +78,15 @@
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/colors.xml -->
+    <eat-comment />
+
+    <color name="background_color">#003E5B</color>
+    <color name="original_button_pressed_text_color">#333333</color>
+    <color name="original_button_text_color">#EEEEEE</color>
+    <color name="original_text_color">#EEEEEE</color>
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
+    <eat-comment />
 
     <declare-styleable name="ActionBar">
 
@@ -676,10 +685,17 @@
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="answer_button_left_right_margin">20dp</dimen>
+    <dimen name="answer_row_top_margin">20dp</dimen>
+    <dimen name="correct_answer_static_text_size">20sp</dimen>
     <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportGridlayoutV71900.aar/res/values/values.xml -->
     <eat-comment />
 
     <dimen name="default_gap">16dip</dimen>
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
+    <dimen name="wrong_answer_static_text_size">20sp</dimen>
     <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
 
@@ -710,8 +726,20 @@
 
     <string name="action_settings">Settings</string>
     <string name="app_name">Secret Quiz</string>
-    <string name="btn_start_quiz">Start</string>
+    <string name="btn_next_question">Next Question</string>
+    <string name="btn_start_quiz">Take the quiz</string>
     <string name="hello_world">Hello world!</string>
+    <string name="main_title_bar_string">Welcome!</string>
+    <string name="title_activity_yes">YesActivity</string>
+    <string name="txt_correct_answer_static_text">Correct!</string>
+    <string name="txt_wrong_answer_static_text">Wrong!</string>
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/themes.xml -->
+    <eat-comment />
+
+    <style name="ActionBarSecretQuiz" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/correct_button_bg</item>
+        <item name="background">@drawable/correct_button_bg</item>
+    </style>
     <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/styles.xml -->
     <eat-comment />
 
@@ -719,6 +747,44 @@
 
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
+    </style>
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/themes.xml -->
+    <eat-comment />
+
+    <style name="BlackImageBackground" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Action Bar -->
+        <item name="actionBarStyle">@style/ActionBarSecretQuiz</item>
+        <item name="android:actionBarStyle">@style/ActionBarSecretQuiz</item>
+
+        <!-- Activity -->
+        <item name="android:background">@drawable/original_bk_activities</item>
+    </style>
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="CorrectNextButton" parent="RedButton">
+        <item name="android:background">@drawable/correct_button_background</item>
+        <item name="android:textColor">@color/button_color</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="QuestionTextView">
+        <item name="android:textColor">@color/original_text_color</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">80dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+    <style name="RedButton">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/button_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:minLines">2</item>
+        <item name="android:maxLines">2</item>
     </style>
     <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/res/values/values.xml -->
     <eat-comment />
@@ -1389,5 +1455,13 @@
     <style name="Widget.AppCompat.ProgressBar.Horizontal" parent="Widget.AppCompat.Base.ProgressBar.Horizontal" />
 
     <style name="Widget.AppCompat.Spinner.DropDown.ActionBar" parent="Widget.AppCompat.Base.Spinner" />
+    <!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/values/styles.xml -->
+    <eat-comment />
+
+    <style name="WrongNextButton" parent="RedButton">
+        <item name="android:background">@drawable/wrong_button_background</item>
+        <item name="android:textColor">@color/button_color</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 </resources>

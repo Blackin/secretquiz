@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Theme 1 -->
+    <color name="background_color">#003E5B</color>
+    <color name="original_text_color">#EEEEEE</color>
+    <color name="original_button_text_color">#EEEEEE</color>
+    <color name="original_button_pressed_text_color">#333333</color>
+
+</resources>

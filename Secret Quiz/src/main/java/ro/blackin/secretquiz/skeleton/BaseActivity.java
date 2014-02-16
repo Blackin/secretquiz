@@ -15,7 +15,8 @@ public class BaseActivity extends ActionBarActivity
 
         try
         {
-            getSupportActionBar().hide();
+//            getSupportActionBar().hide();
+            getSupportActionBar().show();
         }
         catch (Exception ex)
         {

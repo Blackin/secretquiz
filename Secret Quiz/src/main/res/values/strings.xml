@@ -4,12 +4,11 @@
     <string name="app_name">Secret Quiz</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
-    <string name="btn_start_quiz">Start</string>
-
+    <string name="btn_start_quiz">Take the quiz</string>
     <string name="txt_correct_answer_static_text">Correct!</string>
     <string name="txt_wrong_answer_static_text">Wrong!</string>
-
     <string name="btn_next_question">Next Question</string>
+    <string name="title_activity_yes">YesActivity</string>
+    <string name="main_title_bar_string">Welcome!</string>
 
 </resources>
