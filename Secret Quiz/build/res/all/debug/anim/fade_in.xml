@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<set xmlns:android="http://schemas.android.com/apk/res/android" android:fillAfter="true">
-    <alpha android:fromAlpha="0"
-           android:toAlpha="100"
-           android:duration="500" />
-</set><!-- From: file:/F:/Android%20Studio%20Projects/Secret%20Quiz/Secret%20Quiz/src/main/res/anim/fade_in.xml -->
