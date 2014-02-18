@@ -14,4 +14,13 @@ public class Statics {
     public static Quiz currentQuiz = null;
 
 
+    /**
+     * Score
+     */
+    public void resetScore()
+    {
+        CURRENT_SCORE = 0;
+    }
+
+
 }

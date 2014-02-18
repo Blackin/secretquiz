@@ -1,5 +1,6 @@
 package ro.blackin.secretquiz.skeleton;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
@@ -13,9 +14,31 @@ public class BaseActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
 
+    }
+
+
+
+
+    /**
+     * Action Bar Methods
+     */
+    protected void hideActionBar()
+    {
         try
         {
-//            getSupportActionBar().hide();
+            getSupportActionBar().hide();
+        }
+        catch (Exception ex)
+        {
+            //There is no supportActionBar :)
+            ex.printStackTrace();
+        }
+    }
+
+    protected void showActionBar()
+    {
+        try
+        {
             getSupportActionBar().show();
         }
         catch (Exception ex)
@@ -24,4 +47,33 @@ public class BaseActivity extends ActionBarActivity
             ex.printStackTrace();
         }
     }
+
+    public void setUpActionBar()
+    {
+        try
+        {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void setActionBarTitle(String text)
+    {
+        try
+        {
+            if(text != null)
+            {
+                android.support.v7.app.ActionBar ab = getSupportActionBar();
+                ab.setTitle(text);
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
 }

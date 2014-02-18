@@ -36,22 +36,23 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //Incarca quiz-ul din provider
         HardCodedQuizProvider quizProvider = new HardCodedQuizProvider();
         Statics.currentQuiz = quizProvider.getQuiz();
 
         initUI();
+        hideActionBar();
 
         handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 vfMainViewFlipper.showNext();
+
+                setActionBarTitle("Secret Quiz");
+                showActionBar();
             }
         }, 2000);
-
-
 
     }
 

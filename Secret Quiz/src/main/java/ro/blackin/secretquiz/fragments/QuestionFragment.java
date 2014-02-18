@@ -16,6 +16,8 @@ import ro.blackin.secretquiz.R;
 import ro.blackin.secretquiz.YesActivity;
 import ro.blackin.secretquiz.models.Answer;
 import ro.blackin.secretquiz.models.Question;
+import ro.blackin.secretquiz.skeleton.BaseActivity;
+import ro.blackin.secretquiz.utils.Statics;
 import ro.blackin.secretquiz.views.NonSwipeableViewPager;
 import ro.blackin.secretquiz.views.SAutoBgButton;
 
@@ -65,6 +67,15 @@ public class QuestionFragment extends Fragment
          */
         if(!question.isFinalQuestion())
         {
+
+            //Action Bar Title
+            try {
+                BaseActivity activity = (BaseActivity) getActivity();
+                activity.setActionBarTitle("Question No." + String.valueOf(pager.getCurrentItem() + 1) );
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
             ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_question, null);
             final ViewFlipper flipper = (ViewFlipper) rootView.findViewById(R.id.vfQuestionViewFlipper);
             //Answer Button click listener
@@ -77,9 +88,14 @@ public class QuestionFragment extends Fragment
                         Answer answer = (Answer) btn.getTag();
 
                         if(answer.isCorrect()){
+                            //Increment Score
+                            Statics.CURRENT_SCORE++;
+
                             //Show CORRECT answer page
                             flipper.showNext();
+
                         } else {
+
                             //Show WRONG answer page
                             flipper.showNext();
                             flipper.showNext();
