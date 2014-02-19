@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    style="@style/QuitDialogTheme"
+    >
+
+    <ro.blackin.secretquiz.views.CustomFontTextView
+        android:id="@+id/tvQDTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Do you really want to quit?"
+        android:textSize="20sp"
+        android:textColor="@color/original_text_color"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <ro.blackin.secretquiz.views.CustomFontButton
+            android:id="@+id/btnQDYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_dialog_yes"
+            style="@style/WrongNextButton"
+            android:layout_marginRight="30dp"
+            />
+
+        <ro.blackin.secretquiz.views.CustomFontButton
+            android:id="@+id/btnQDNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_dialog_no"
+            style="@style/CorrectNextButton"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -11,4 +11,10 @@
     <string name="title_activity_yes">YesActivity</string>
     <string name="main_title_bar_string">Welcome!</string>
 
+    <!-- Back Dialog -->
+    <string name="back_dialog_title">Quit Quiz</string>
+    <string name="back_dialog_message">Are you sure you want to quit the current quiz ?</string>
+    <string name="back_dialog_yes">Yes</string>
+    <string name="back_dialog_no">No</string>
+
 </resources>

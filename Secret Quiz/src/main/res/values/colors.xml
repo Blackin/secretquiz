@@ -8,6 +8,7 @@
     <color name="original_button_pressed_text_color">#333333</color>
 
     <color name="rosu">#FF0000</color>
+    <color name="white">#FFFFFF</color>
 
     <!-- Action Bar -->
     <color name="sq_bleu">#4ECDC4</color>
