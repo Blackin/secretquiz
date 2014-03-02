@@ -290,39 +290,42 @@ public class QuestionFragment extends Fragment
 
     private void updateUI( SAutoBgButton[] buttons )
     {
-        if(mHandler != null)
+        if(isAdded())
         {
-            mHandler.sleep(100);
-
-            //Show / Hide buttons
-            for (int i = 0; i < buttons.length; i++)
+            if(mHandler != null)
             {
-                SAutoBgButton button = buttons[i];
-                if(button.getVisibility() == View.VISIBLE)
+                mHandler.sleep(100);
+
+                //Show / Hide buttons
+                for (int i = 0; i < buttons.length; i++)
                 {
-                    //Make it invisible
-                    button.setVisibility(View.INVISIBLE);
-                    String btnId = getResources().getResourceName(button.getId());
-                    String btnNamePrefix = btnId.substring(0,34);
-                    int no = Integer.parseInt(btnId.substring(34));
-                    int nextVisibleNo = no;
-                    Random generator = new Random();
-
-                    while( no == nextVisibleNo || nextVisibleNo < 2 || nextVisibleNo > 5)
+                    SAutoBgButton button = buttons[i];
+                    if(button.getVisibility() == View.VISIBLE)
                     {
-                        nextVisibleNo = generator.nextInt(6);
-                    }
+                        //Make it invisible
+                        button.setVisibility(View.INVISIBLE);
+                        String btnId = getResources().getResourceName(button.getId());
+                        String btnNamePrefix = btnId.substring(0,34);
+                        int no = Integer.parseInt(btnId.substring(34));
+                        int nextVisibleNo = no;
+                        Random generator = new Random();
 
-                    for (int j = 0; j < buttons.length; j++) {
-                        SAutoBgButton sAutoBgButton = buttons[j];
-                        if( getResources().getResourceName(sAutoBgButton.getId()).equalsIgnoreCase( btnNamePrefix + String.valueOf(nextVisibleNo)) )
+                        while( no == nextVisibleNo || nextVisibleNo < 2 || nextVisibleNo > 5)
                         {
-                            sAutoBgButton.setVisibility(View.VISIBLE);
-                            break;
+                            nextVisibleNo = generator.nextInt(6);
                         }
-                    }
 
-                    break;
+                        for (int j = 0; j < buttons.length; j++) {
+                            SAutoBgButton sAutoBgButton = buttons[j];
+                            if( getResources().getResourceName(sAutoBgButton.getId()).equalsIgnoreCase( btnNamePrefix + String.valueOf(nextVisibleNo)) )
+                            {
+                                sAutoBgButton.setVisibility(View.VISIBLE);
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
                 }
             }
         }

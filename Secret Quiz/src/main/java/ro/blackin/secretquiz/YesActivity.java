@@ -19,6 +19,17 @@ public class YesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yes);
+        hideActionBar();
 
+        //TODO: Play sound
+        SQApplication app = (SQApplication) getApplication();
+        app.soundPlayer.playFinalSound();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

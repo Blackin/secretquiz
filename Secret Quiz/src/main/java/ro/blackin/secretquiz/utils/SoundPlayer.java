@@ -29,6 +29,7 @@ public class SoundPlayer
     public int backgroundSoundId = -1;
     public int correctSoundId = -1;
     public int wrongSoundId = -1;
+    public int finalSoundId = -1;
 
 
     private SoundPlayer(Context ctx)
@@ -80,9 +81,10 @@ public class SoundPlayer
         });
 
         //Load Sounds
-        backgroundSoundId = soundPool.load(context, R.raw.sound_background, 3);
-        correctSoundId = soundPool.load(context, R.raw.sound_correct, 2);
-        wrongSoundId = soundPool.load(context, R.raw.sound_wrong, 1);
+        backgroundSoundId = soundPool.load(context, R.raw.sound_background, 4);
+        correctSoundId = soundPool.load(context, R.raw.sound_correct, 3);
+        wrongSoundId = soundPool.load(context, R.raw.sound_wrong, 2);
+        finalSoundId = soundPool.load(context, R.raw.final_sound, 1);
     }
 
     public void onPause()
@@ -148,6 +150,19 @@ public class SoundPlayer
         }
         if(!this.isMuted()){
             soundPool.play(wrongSoundId,leftVolume,rightVolume, 1 , 0 ,normal_playback_rate);
+        }
+    }
+
+    /**
+     * Play final sound
+     */
+    public void playFinalSound()
+    {
+        if(soundPool == null) {
+            this.initSoundPool();
+        }
+        if(!this.isMuted()){
+            soundPool.play(finalSoundId,leftVolume,rightVolume, 1 , 0 ,normal_playback_rate);
         }
     }
 
