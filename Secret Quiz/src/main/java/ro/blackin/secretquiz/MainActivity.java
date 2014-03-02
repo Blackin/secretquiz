@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,7 +18,9 @@ import ro.blackin.secretquiz.models.Quiz;
 import ro.blackin.secretquiz.providers.HardCodedQuizProvider;
 import ro.blackin.secretquiz.providers.QuizProvider;
 import ro.blackin.secretquiz.skeleton.BaseActivity;
+import ro.blackin.secretquiz.utils.SoundPlayer;
 import ro.blackin.secretquiz.utils.Statics;
+import ro.blackin.secretquiz.views.SAutoBgButton;
 
 public class MainActivity extends BaseActivity
 {
@@ -48,12 +51,20 @@ public class MainActivity extends BaseActivity
             @Override
             public void run() {
                 vfMainViewFlipper.showNext();
-
-                setActionBarTitle("Secret Quiz");
-                showActionBar();
+//                setActionBarTitle("Secret Quiz");
+//                showActionBar();
             }
         }, 2000);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     private void initUI()
@@ -105,6 +116,7 @@ public class MainActivity extends BaseActivity
     public static class QuizMainFragment extends Fragment
     {
         Button btnStartQuiz;
+        SAutoBgButton btnSoundOnOff;
 
         public QuizMainFragment(){
         }
@@ -128,6 +140,27 @@ public class MainActivity extends BaseActivity
                     intent.setClass( getActivity() , TakeQuizActivity.class);
                     startActivity(intent);
                     getActivity().overridePendingTransition(R.anim.fade_in, R.anim.abc_fade_out);
+                }
+            });
+
+            btnSoundOnOff = (SAutoBgButton) rootView.findViewById(R.id.btnSoundOnOff);
+            btnSoundOnOff.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MainActivity activity = (MainActivity) getActivity();
+                    SAutoBgButton button = (SAutoBgButton) view;
+                    if(button.isSelected())
+                    {
+                        button.setSelected(false);
+                        button.setBackgroundDrawable( activity.getResources().getDrawable(R.drawable.sound_icon_on ));
+                        activity.app.soundPlayer.unmuteSounds();
+                    }
+                    else
+                    {
+                        button.setSelected(true);
+                        button.setBackgroundDrawable( activity.getResources().getDrawable(R.drawable.sound_icon_off ));
+                        activity.app.soundPlayer.muteSounds();
+                    }
                 }
             });
         }

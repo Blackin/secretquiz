@@ -16,19 +16,20 @@
         />
 
     <ViewFlipper
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/vfQuestionViewFlipper"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <!-- Question with possible answers -->
+
     <LinearLayout
         android:id="@+id/llQuestionContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
         android:orientation="vertical"
-        android:paddingTop="60dp"
+        android:paddingTop="20dp"
         android:visibility="visible"
         >
 
@@ -128,8 +129,8 @@
                 />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/correct"
@@ -188,8 +189,8 @@
                 />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/wrong"
@@ -220,5 +221,13 @@
     </LinearLayout>
 
     </ViewFlipper>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+    </LinearLayout>
 
 </LinearLayout>

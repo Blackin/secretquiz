@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -30,27 +30,68 @@
 
             <ro.blackin.secretquiz.views.SAutoBgButton
                 style="@style/CorrectNextButton"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnAnswer1"
                 android:text="Answer1"
                 android:layout_gravity="center"
-                android:layout_marginRight="@dimen/answer_button_left_right_margin"
-                android:layout_marginLeft="@dimen/answer_button_left_right_margin"
+                android:layout_centerInParent="true"
                 />
             <ro.blackin.secretquiz.views.SAutoBgButton
                 style="@style/WrongNextButton"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnAnswer2"
                 android:text="Answer2"
                 android:layout_gravity="center"
-                android:layout_marginRight="@dimen/answer_button_left_right_margin"
-                android:layout_marginLeft="@dimen/answer_button_left_right_margin"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
                 />
-        </LinearLayout>
+
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/WrongNextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAnswer3"
+                android:text="Answer3"
+                android:layout_gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:visibility="invisible"
+                />
+
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/WrongNextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAnswer4"
+                android:text="Answer4"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:visibility="invisible"
+                />
+
+            <ro.blackin.secretquiz.views.SAutoBgButton
+                style="@style/WrongNextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAnswer5"
+                android:text="Answer5"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:visibility="invisible"
+                />
+
+        </RelativeLayout>
 
     </ViewFlipper>
 

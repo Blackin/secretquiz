@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ro.blackin.secretquiz.MainActivity$PlaceholderFragment">
+    tools:context="ro.blackin.secretquiz.MainActivity$SplashScreenFragment">
 
     <ImageView
         android:id="@+id/ivSplashImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:background="#00FF00"
+        android:scaleType="fitXY"
+        android:src="@drawable/loading_screen"
         />
 
 </RelativeLayout>

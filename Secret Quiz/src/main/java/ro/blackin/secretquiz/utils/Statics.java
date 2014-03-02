@@ -13,6 +13,7 @@ public class Statics {
 
     public static Quiz currentQuiz = null;
 
+    public static boolean PLAY_SOUNDS = true;
 
     /**
      * Score

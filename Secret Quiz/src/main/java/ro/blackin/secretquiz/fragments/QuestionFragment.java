@@ -1,18 +1,27 @@
 package ro.blackin.secretquiz.fragments;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.GridLayout;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import java.util.Random;
+
 import ro.blackin.secretquiz.R;
+import ro.blackin.secretquiz.SQApplication;
 import ro.blackin.secretquiz.YesActivity;
 import ro.blackin.secretquiz.models.Answer;
 import ro.blackin.secretquiz.models.Question;
@@ -28,6 +37,7 @@ public class QuestionFragment extends Fragment
 {
     Question question;
     NonSwipeableViewPager pager;
+    RefreshHandler mHandler;
 
     public static QuestionFragment newInstance( Question q, NonSwipeableViewPager pg )
     {
@@ -68,16 +78,24 @@ public class QuestionFragment extends Fragment
         if(!question.isFinalQuestion())
         {
 
+            BaseActivity activity = (BaseActivity) getActivity();
             //Action Bar Title
             try {
-                BaseActivity activity = (BaseActivity) getActivity();
                 activity.setActionBarTitle("Question No." + String.valueOf(pager.getCurrentItem() + 1) );
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
 
+            Animation slideInLeft = AnimationUtils.loadAnimation( activity, R.anim.slide_in_left);
+            Animation slideOutLeft = AnimationUtils.loadAnimation( activity, R.anim.slide_out_left);
+            Animation slideInRight = AnimationUtils.loadAnimation( activity, R.anim.slide_in_right);
+            Animation slideOutRight = AnimationUtils.loadAnimation( activity, R.anim.slide_out_right);
+
             ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_question, null);
             final ViewFlipper flipper = (ViewFlipper) rootView.findViewById(R.id.vfQuestionViewFlipper);
+            flipper.setInAnimation(slideInRight);
+            flipper.setOutAnimation(slideOutLeft);
+
             //Answer Button click listener
             View.OnClickListener answerClickListener = new View.OnClickListener() {
                 @Override
@@ -86,6 +104,7 @@ public class QuestionFragment extends Fragment
                     try{
                         SAutoBgButton btn = (SAutoBgButton) view;
                         Answer answer = (Answer) btn.getTag();
+                        SQApplication app = (SQApplication)getActivity().getApplication();
 
                         if(answer.isCorrect()){
                             //Increment Score
@@ -94,11 +113,17 @@ public class QuestionFragment extends Fragment
                             //Show CORRECT answer page
                             flipper.showNext();
 
+                            //Sound
+                            app.soundPlayer.playCorrectSound();
+
                         } else {
 
                             //Show WRONG answer page
                             flipper.showNext();
                             flipper.showNext();
+
+                            //Sound
+                            app.soundPlayer.playWrongSound();
                         }
 
                     } catch (Exception ex) {
@@ -160,6 +185,14 @@ public class QuestionFragment extends Fragment
             /**
              * Final question
              */
+            BaseActivity activity = (BaseActivity) getActivity();
+            //Action Bar Title
+            try {
+                activity.setActionBarTitle(" The Question ! ");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
             ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_final_question, null);
             final ViewFlipper flipper = (ViewFlipper) rootView.findViewById(R.id.vfQuestionViewFlipper);
             //Answer Button click listener
@@ -180,7 +213,7 @@ public class QuestionFragment extends Fragment
                         else
                         {
                             //Nu exista asa ceva!
-
+                            Toast.makeText(getActivity(), "Eroare! Probabil vroiai sa apesi butonul ala albastru mare din centru! :) :) :)", Toast.LENGTH_SHORT).show();
                         }
 
                     } catch (Exception ex) {
@@ -200,6 +233,25 @@ public class QuestionFragment extends Fragment
             answer2.setTag(question.getAnswers().get(1));
             answer2.setOnClickListener(answerClickListener);
 
+            SAutoBgButton answer3 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer3);
+            answer3.setText(question.getAnswers().get(1).getTitle());
+            answer3.setTag(question.getAnswers().get(1));
+            answer3.setOnClickListener(answerClickListener);
+
+            SAutoBgButton answer4 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer4);
+            answer4.setText(question.getAnswers().get(1).getTitle());
+            answer4.setTag(question.getAnswers().get(1));
+            answer4.setOnClickListener(answerClickListener);
+
+            SAutoBgButton answer5 = (SAutoBgButton) rootView.findViewById(R.id.btnAnswer5);
+            answer5.setText(question.getAnswers().get(1).getTitle());
+            answer5.setTag(question.getAnswers().get(1));
+            answer5.setOnClickListener(answerClickListener);
+
+            SAutoBgButton[] btns = {answer2, answer3, answer4, answer5};
+            mHandler = new RefreshHandler(btns);
+            updateUI(btns);
+
             return rootView;
         }
     }
@@ -214,6 +266,65 @@ public class QuestionFragment extends Fragment
         catch (Exception ex)
         {
             ex.printStackTrace();
+        }
+    }
+
+    class RefreshHandler extends Handler
+    {
+        SAutoBgButton[] buttons;
+
+        public RefreshHandler( SAutoBgButton[] btns ){
+            buttons = btns;
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            QuestionFragment.this.updateUI(buttons);
+        }
+
+        public void sleep(long delayMillis) {
+            this.removeMessages(0);
+            sendMessageDelayed(obtainMessage(0), delayMillis);
+        }
+    };
+
+    private void updateUI( SAutoBgButton[] buttons )
+    {
+        if(mHandler != null)
+        {
+            mHandler.sleep(100);
+
+            //Show / Hide buttons
+            for (int i = 0; i < buttons.length; i++)
+            {
+                SAutoBgButton button = buttons[i];
+                if(button.getVisibility() == View.VISIBLE)
+                {
+                    //Make it invisible
+                    button.setVisibility(View.INVISIBLE);
+                    String btnId = getResources().getResourceName(button.getId());
+                    String btnNamePrefix = btnId.substring(0,34);
+                    int no = Integer.parseInt(btnId.substring(34));
+                    int nextVisibleNo = no;
+                    Random generator = new Random();
+
+                    while( no == nextVisibleNo || nextVisibleNo < 2 || nextVisibleNo > 5)
+                    {
+                        nextVisibleNo = generator.nextInt(6);
+                    }
+
+                    for (int j = 0; j < buttons.length; j++) {
+                        SAutoBgButton sAutoBgButton = buttons[j];
+                        if( getResources().getResourceName(sAutoBgButton.getId()).equalsIgnoreCase( btnNamePrefix + String.valueOf(nextVisibleNo)) )
+                        {
+                            sAutoBgButton.setVisibility(View.VISIBLE);
+                            break;
+                        }
+                    }
+
+                    break;
+                }
+            }
         }
     }
 
