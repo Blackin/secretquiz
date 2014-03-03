@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ViewFlipper;
 
+import ro.blackin.secretquiz.dialogs.PasswordDialogFragment;
+import ro.blackin.secretquiz.dialogs.QuitQuizDialogFragment;
 import ro.blackin.secretquiz.models.Quiz;
 import ro.blackin.secretquiz.providers.HardCodedQuizProvider;
 import ro.blackin.secretquiz.providers.QuizProvider;
@@ -21,8 +23,9 @@ import ro.blackin.secretquiz.skeleton.BaseActivity;
 import ro.blackin.secretquiz.utils.SoundPlayer;
 import ro.blackin.secretquiz.utils.Statics;
 import ro.blackin.secretquiz.views.SAutoBgButton;
+import ro.blackin.secretquiz.views.SecretQuizDialog;
 
-public class MainActivity extends BaseActivity
+public class MainActivity extends BaseActivity implements PasswordDialogFragment.EditNameDialogListener
 {
     //VIEWS
     ViewFlipper vfMainViewFlipper;
@@ -53,6 +56,10 @@ public class MainActivity extends BaseActivity
                 vfMainViewFlipper.showNext();
 //                setActionBarTitle("Secret Quiz");
 //                showActionBar();
+
+                PasswordDialogFragment passwordDialogFragment = new PasswordDialogFragment();
+                passwordDialogFragment.show(getSupportFragmentManager(),"ParolaDialog");
+
             }
         }, 2000);
     }
@@ -91,6 +98,13 @@ public class MainActivity extends BaseActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFinishEditDialog(String inputText) {
+        if(inputText == null || !inputText.equalsIgnoreCase("camila")){
+            this.finish();
+        }
     }
 
     /**

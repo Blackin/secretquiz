@@ -53,10 +53,10 @@ public class SoundPlayer
      */
     public void initSoundPool()
     {
-        initSoundPool( false );
+        initSoundPool( -1 );
     }
 
-    public void initSoundPool( final boolean playBackground )
+    public void initSoundPool( final int soundId )
     {
         //Init stuff
         soundPool = new SoundPool( 4, AudioManager.STREAM_MUSIC, 100);
@@ -73,9 +73,9 @@ public class SoundPlayer
             public void onLoadComplete(SoundPool soundPool, int i, int i2)
             {
                 SoundPlayer.this.setIsLoaded(true);
-                if(playBackground)
+                if( soundId > 0 )
                 {
-                    playBackgroundMusic();
+                    soundPool.play(soundId, leftVolume, rightVolume, 1, 0, normal_playback_rate);
                 }
             }
         });
@@ -115,7 +115,7 @@ public class SoundPlayer
         if(this.soundPool != null) {
             this.soundPool.autoResume();
         } else {
-            this.initSoundPool(true);
+            this.initSoundPool();
         }
     }
 
@@ -159,10 +159,11 @@ public class SoundPlayer
     public void playFinalSound()
     {
         if(soundPool == null) {
-            this.initSoundPool();
-        }
-        if(!this.isMuted()){
-            soundPool.play(finalSoundId,leftVolume,rightVolume, 1 , 0 ,normal_playback_rate);
+            this.initSoundPool( finalSoundId );
+        } else {
+            if(!this.isMuted()){
+                soundPool.play(finalSoundId,leftVolume,rightVolume, 1 , 0 ,normal_playback_rate);
+            }
         }
     }
 

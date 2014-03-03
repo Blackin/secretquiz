@@ -76,5 +76,11 @@
         <item name="android:layout_marginRight">30dp</item>
     </style>
 
+    <!-- Quit quiz Dialog -->
+    <style name="ParolaDialogTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@drawable/dialog_background</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 
 </resources>
