@@ -20,30 +20,30 @@ public class HardCodedQuizProvider implements  QuizProvider
 
         //Question 1
         question= new Question();
-        question.setTitle("Unde traiesc ursii polari ?");
+        question.setTitle("Cum ai defini conceptul \"femeia perfecta\" ? ");
         question.setOrder(0);
 
         answer = new Answer();
         answer.setOrder(0);
-        answer.setTitle("La Polul Sud");
+        answer.setTitle("Nu exista");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(1);
-        answer.setTitle("In jungla");
+        answer.setTitle("Monica Tatoiu");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(2);
-        answer.setTitle("La Polul Nord");
+        answer.setTitle("Uite-ma !");
         answer.setCorrect(true);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(3);
-        answer.setTitle("In savana africana");
+        answer.setTitle("Ahahahaha");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
@@ -52,31 +52,31 @@ public class HardCodedQuizProvider implements  QuizProvider
 
         //Question 2
         question= new Question();
-        question.setTitle("Unde traiesc ursii polari 2 ?");
+        question.setTitle("Sincer, crezi ca vei avea VREO lenjerie cu colturile intregi in viata asta ? ");
         question.setOrder(1);
 
         answer = new Answer();
         answer.setOrder(0);
-        answer.setTitle("La Polul Sud");
+        answer.setTitle("Spre binele tau");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(1);
-        answer.setTitle("In jungla");
+        answer.setTitle("Nu vreau asa ceva");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(2);
-        answer.setTitle("La Polul Nord");
-        answer.setCorrect(true);
+        answer.setTitle("Ce ma ???");
+        answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(3);
-        answer.setTitle("In savana africana");
-        answer.setCorrect(false);
+        answer.setTitle("Ai belit-o");
+        answer.setCorrect(true);
         question.addAnswer(answer);
 
         quiz.addQuestion(question);
@@ -84,30 +84,30 @@ public class HardCodedQuizProvider implements  QuizProvider
 
         //Question 3
         question= new Question();
-        question.setTitle("Unde traiesc ursii polari 3 ?");
+        question.setTitle("Ce proportie din suprafata dormibila a patului i se cuvine femeii ?");
         question.setOrder(2);
 
         answer = new Answer();
         answer.setOrder(0);
-        answer.setTitle("La Polul Sud");
-        answer.setCorrect(false);
+        answer.setTitle("98.23%");
+        answer.setCorrect(true);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(1);
-        answer.setTitle("In jungla");
+        answer.setTitle("40%");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(2);
-        answer.setTitle("La Polul Nord");
-        answer.setCorrect(true);
+        answer.setTitle("10%");
+        answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(3);
-        answer.setTitle("In savana africana");
+        answer.setTitle("50%");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
@@ -115,68 +115,134 @@ public class HardCodedQuizProvider implements  QuizProvider
 
         //Question 4
         question= new Question();
-        question.setTitle("Unde traiesc ursii polari 4 ?");
+        question.setTitle("Pe ce continent te ador eu cel mai mult ? ");
         question.setOrder(2);
 
         answer = new Answer();
         answer.setOrder(0);
-        answer.setTitle("La Polul Sud");
+        answer.setTitle("Africa");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(1);
-        answer.setTitle("In jungla");
+        answer.setTitle("Europa");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(2);
-        answer.setTitle("La Polul Nord");
-        answer.setCorrect(true);
+        answer.setTitle("Asia");
+        answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(3);
-        answer.setTitle("In savana africana");
-        answer.setCorrect(false);
+        answer.setTitle("Peste TOT");
+        answer.setCorrect(true);
         question.addAnswer(answer);
 
         quiz.addQuestion(question);
 
         //Question 5
         question= new Question();
-        question.setTitle("Unde traiesc ursii polari 5 ?");
+        question.setTitle("Cum trebuie sa fie barbatul perfect ?");
         question.setOrder(2);
 
         answer = new Answer();
         answer.setOrder(0);
-        answer.setTitle("La Polul Sud");
+        answer.setTitle("Destept");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(1);
-        answer.setTitle("In jungla");
+        answer.setTitle("Ca Picu");
+        answer.setCorrect(true);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(2);
+        answer.setTitle("Romantic");
+        answer.setCorrect(false);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(3);
+        answer.setTitle("Frumos");
+        answer.setCorrect(false);
+        question.addAnswer(answer);
+
+        quiz.addQuestion(question);
+
+        //Question 6
+        question= new Question();
+        question.setTitle("Mai reusesti sa ma suporti mult ? ");
+        question.setOrder(2);
+
+        answer = new Answer();
+        answer.setOrder(0);
+        answer.setTitle("Nu");
+        answer.setCorrect(false);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(1);
+        answer.setTitle("Nuuu");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(2);
-        answer.setTitle("La Polul Nord");
-        answer.setCorrect(true);
+        answer.setTitle("Nu mai pot frate");
+        answer.setCorrect(false);
         question.addAnswer(answer);
 
         answer = new Answer();
         answer.setOrder(3);
-        answer.setTitle("In savana africana");
+        answer.setTitle("Un pic asa");
+        answer.setCorrect(true);
+        question.addAnswer(answer);
+
+        quiz.addQuestion(question);
+
+
+        //Question 7
+        question= new Question();
+        question.setTitle("Ai idee care o sa fie urmatoarea intrebare ? (Daca ghicesti primesti un premiu!) :)");
+        question.setOrder(2);
+
+        answer = new Answer();
+        answer.setOrder(0);
+        answer.setTitle("Hmm..");
+        answer.setCorrect(true);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(1);
+        answer.setTitle("Mai e una ???");
+        answer.setCorrect(false);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(2);
+        answer.setTitle("Hai frate..");
+        answer.setCorrect(false);
+        question.addAnswer(answer);
+
+        answer = new Answer();
+        answer.setOrder(3);
+        answer.setTitle("Bai asta...");
         answer.setCorrect(false);
         question.addAnswer(answer);
 
         quiz.addQuestion(question);
 
 
-        //Question 6
+
+
+
+        //Final Question
         question= new Question();
         question.setTitle("Ana are mere ?");
         question.setOrder(2);

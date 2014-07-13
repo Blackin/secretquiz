@@ -12,7 +12,7 @@
         android:id="@+id/tvQuestionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cum se numeste cel mai mare lorem ipsum din tot internetu asta mare !?"
+        android:text="Ruxandra Maria Puiu, vrei sa fii sotia mea  ?"
         />
 
     <ViewFlipper
